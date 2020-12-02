@@ -105,6 +105,13 @@ $.prototype.init = function (selector) {
     return this; // this - {} - $.prototype.init(selector) - our new created empty object
   }
 
+  if (selector.tagName) {
+    // checking if this parameter is a tag (not a selector), to be able to use $(this) in callback functions in main.js
+    this[0] = selector;
+    this.length = 1;
+    return this;
+  }
+
   Object.assign(this, document.querySelectorAll(selector)); //Object.assign() allows us to copy all properties values from prototype objecto to a target one(this)
 
   this.length = document.querySelectorAll(selector).length;
@@ -297,7 +304,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_lib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/lib */ "./src/js/lib/lib.js");
 
 $('button').click(function () {
-  $(this).toggleClass('active');
+  $(this).toggleClass('active'); //$(this) is a node, not a selector
 });
 
 /***/ })
