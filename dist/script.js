@@ -96,6 +96,7 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 const $ = function (selector) {
+  // constructor
   return new $.prototype.init(selector);
 };
 
@@ -106,12 +107,12 @@ $.prototype.init = function (selector) {
 
   Object.assign(this, document.querySelectorAll(selector)); //Object.assign() allows us to copy all properties values from prototype objecto to a target one(this)
 
-  this.length = document.querySelectorAll(selector).length; // the number of elements got by the selector
-
+  this.length = document.querySelectorAll(selector).length;
+  console.log(this);
   return this;
 };
 
-$.prototype.init.prototype = $.prototype; //we record the prototype of $ to the prototype of our returned object; so now we can use all methods of $ prototype
+$.prototype.init.prototype = $.prototype; //!!!we record the prototype of $ to the prototype of our returned object; so now we can use all methods of $ prototype
 
 window.$ = $; // to be able to use $ globally
 
@@ -130,10 +131,103 @@ window.$ = $; // to be able to use $ globally
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core */ "./src/js/lib/core.js");
 /* harmony import */ var _modules_display__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/display */ "./src/js/lib/modules/display.js");
+/* harmony import */ var _modules_classes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/classes */ "./src/js/lib/modules/classes.js");
+/* harmony import */ var _modules_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/actions */ "./src/js/lib/modules/actions.js");
 //this file will enrich the $ function with different secondary methods
 
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = (_core__WEBPACK_IMPORTED_MODULE_0__["default"]); // the $ func will be now enriched with imported modules functionality
+
+/***/ }),
+
+/***/ "./src/js/lib/modules/actions.js":
+/*!***************************************!*\
+  !*** ./src/js/lib/modules/actions.js ***!
+  \***************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
+
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.on = function (eventName, callback) {
+  if (!eventName || !callback) {
+    return this; // we do nothing, return this for further chaining
+  }
+
+  for (let i = 0; i < this.length; i++) {
+    this[i].addEventListener(eventName, callback);
+  }
+
+  return this;
+};
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.off = function (eventName, callback) {
+  if (!eventName || !callback) {
+    return this;
+  }
+
+  for (let i = 0; i < this.length; i++) {
+    this[i].removeEventListener(eventName, callback);
+  }
+
+  return this;
+};
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.click = function (handler) {
+  for (let i = 0; i < this.length; i++) {
+    if (handler) {
+      this[i].addEventListener('click', handler);
+    } else {
+      this[i].click();
+    }
+  }
+
+  return this;
+};
+
+/***/ }),
+
+/***/ "./src/js/lib/modules/classes.js":
+/*!***************************************!*\
+  !*** ./src/js/lib/modules/classes.js ***!
+  \***************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
+
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.addClass = function (...classNames) {
+  //rest operator
+  for (let i = 0; i < this.length; i++) {
+    this[i].classList.add(...classNames); // spread operator
+  }
+
+  return this;
+};
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.removeClass = function (...classNames) {
+  for (let i = 0; i < this.length; i++) {
+    this[i].classList.remove(...classNames);
+  }
+
+  return this;
+};
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.toggleClass = function (className) {
+  for (let i = 0; i < this.length; i++) {
+    this[i].classList.toggle(className);
+  }
+
+  return this;
+};
 
 /***/ }),
 
@@ -150,7 +244,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.show = function () {
-  //console.log(this);
   for (let i = 0; i < this.length; i++) {
     if (!this[i].style) {
       continue;
@@ -203,7 +296,9 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.toggle = function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_lib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/lib */ "./src/js/lib/lib.js");
 
-$('.active').toggle().toggle();
+$('button').click(function () {
+  $(this).toggleClass('active');
+});
 
 /***/ })
 
