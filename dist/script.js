@@ -212,9 +212,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.addClass = function (...classNames) {
-  //rest operator
   for (let i = 0; i < this.length; i++) {
-    this[i].classList.add(...classNames); // spread operator
+    if (!this[i].classList) {
+      continue;
+    }
+
+    this[i].classList.add(...classNames);
   }
 
   return this;
@@ -222,6 +225,10 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.addClass = function (...
 
 _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.removeClass = function (...classNames) {
   for (let i = 0; i < this.length; i++) {
+    if (!this[i].classList) {
+      continue;
+    }
+
     this[i].classList.remove(...classNames);
   }
 
@@ -230,6 +237,10 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.removeClass = function (
 
 _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.toggleClass = function (className) {
   for (let i = 0; i < this.length; i++) {
+    if (!this[i].classList) {
+      continue;
+    }
+
     this[i].classList.toggle(className);
   }
 
@@ -304,7 +315,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_lib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/lib */ "./src/js/lib/lib.js");
 
 $('button').click(function () {
-  $(this).toggleClass('active'); //$(this) is a node, not a selector
+  $(this).addClass('active'); //$(this) is a node, not a selector
 });
 
 /***/ })
