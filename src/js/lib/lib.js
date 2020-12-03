@@ -3,5 +3,6 @@ import $ from './core';
 import './modules/display';
 import './modules/classes';
 import './modules/actions';
+import './modules/handlers';
 
 export default $; // the $ func will be now enriched with imported modules functionality

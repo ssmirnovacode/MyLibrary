@@ -140,7 +140,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_display__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/display */ "./src/js/lib/modules/display.js");
 /* harmony import */ var _modules_classes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/classes */ "./src/js/lib/modules/classes.js");
 /* harmony import */ var _modules_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/actions */ "./src/js/lib/modules/actions.js");
+/* harmony import */ var _modules_handlers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/handlers */ "./src/js/lib/modules/handlers.js");
 //this file will enrich the $ function with different secondary methods
+
 
 
 
@@ -161,40 +163,81 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
 
 
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.on = function (eventName, callback) {
-  if (!eventName || !callback) {
-    return this; // we do nothing, return this for further chaining
-  }
-
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.html = function (content) {
   for (let i = 0; i < this.length; i++) {
-    this[i].addEventListener(eventName, callback);
-  }
-
-  return this;
-};
-
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.off = function (eventName, callback) {
-  if (!eventName || !callback) {
-    return this;
-  }
-
-  for (let i = 0; i < this.length; i++) {
-    this[i].removeEventListener(eventName, callback);
-  }
-
-  return this;
-};
-
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.click = function (handler) {
-  for (let i = 0; i < this.length; i++) {
-    if (handler) {
-      this[i].addEventListener('click', handler);
+    if (content) {
+      this[i].innerHTML = content;
     } else {
-      this[i].click();
+      return this[i].innerHTML;
     }
   }
 
   return this;
+}; //find element by its index
+
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.eq = function (i) {
+  const targetItem = this[i];
+  const objLength = Object.keys(this).length;
+
+  for (let i = 0; i < objLength; i++) {
+    delete this[i];
+  }
+
+  this[0] = targetItem;
+  this.length = 1;
+  return this;
+};
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.index = function () {
+  const parent = this[0].parentNode;
+  const kids = [...parent.children];
+
+  const findMyIndex = item => {
+    return item == this[0]; // filter function
+  };
+
+  return kids.findIndex(findMyIndex);
+}; //finding elements with the selector among a group of preselected elements
+
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.find = function (selector) {
+  let numberOfItems = 0; //total qty of elems that matched the selector to be recorded into 'this'
+
+  let counter = 0; // number of new elements recorded in 'this'
+
+  const copyObj = Object.assign({}, this); //usual copy of our object
+
+  for (let i = 0; i < copyObj.length; i++) {
+    const arr = copyObj[i].querySelectorAll(selector);
+
+    if (arr.length == 0) {
+      // if there was no watch for current i
+      continue;
+    }
+
+    for (let j = 0; j < arr.length; j++) {
+      this[counter] = arr[j]; // recording the arr elems to 'this' obj
+
+      counter++;
+    }
+
+    numberOfItems += arr.length;
+  }
+
+  for (let k = numberOfItems; k < this.length; k++) {
+    delete this[k];
+  }
+
+  this.length = numberOfItems;
+  return this;
+  /* this.length = numberOfItems;
+    //deleting the 'tail' that might remain in 'this' after recording new key/value pairs
+  const objLength = Object.keys(this).length;
+  for (; numberOfItems < objLength; numberOfItems++) { // (let k=numberOfItems; k < objLength; k++)
+      delete this[numberOfItems];
+  }
+    return this; */
 };
 
 /***/ }),
@@ -303,6 +346,56 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.toggle = function () {
 
 /***/ }),
 
+/***/ "./src/js/lib/modules/handlers.js":
+/*!****************************************!*\
+  !*** ./src/js/lib/modules/handlers.js ***!
+  \****************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
+
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.on = function (eventName, callback) {
+  if (!eventName || !callback) {
+    return this; // we do nothing, return this for further chaining
+  }
+
+  for (let i = 0; i < this.length; i++) {
+    this[i].addEventListener(eventName, callback);
+  }
+
+  return this;
+};
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.off = function (eventName, callback) {
+  if (!eventName || !callback) {
+    return this;
+  }
+
+  for (let i = 0; i < this.length; i++) {
+    this[i].removeEventListener(eventName, callback);
+  }
+
+  return this;
+};
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.click = function (handler) {
+  for (let i = 0; i < this.length; i++) {
+    if (handler) {
+      this[i].addEventListener('click', handler);
+    } else {
+      this[i].click();
+    }
+  }
+
+  return this;
+};
+
+/***/ }),
+
 /***/ "./src/js/main.js":
 /*!************************!*\
   !*** ./src/js/main.js ***!
@@ -315,8 +408,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_lib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/lib */ "./src/js/lib/lib.js");
 
 $('button').click(function () {
-  $(this).addClass('active'); //$(this) is a node, not a selector
+  $('div').eq(2).toggleClass('active'); //$(this) is a node, not a selector
 });
+$('div').click(function () {
+  console.log($(this).index());
+});
+console.log($('div').eq(2).find('.some'));
 
 /***/ })
 
