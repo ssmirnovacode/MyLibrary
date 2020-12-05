@@ -253,6 +253,36 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.closest = function (sele
   return this;
 };
 
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.siblings = function () {
+  let numberOfItems = 0;
+  let counter = 0;
+  const copyObj = Object.assign({}, this);
+
+  for (let i = 0; i < copyObj.length; i++) {
+    const arr = copyObj[i].parentNode.children;
+
+    for (let j = 0; j < arr.length; j++) {
+      if (copyObj[i] === arr[j]) {
+        // if its our element. we dont want to include it
+        continue;
+      }
+
+      this[counter] = arr[j];
+      counter++;
+    }
+
+    numberOfItems += arr.length - 1; // -1 coz its without our element
+  }
+
+  for (; numberOfItems < this.length; numberOfItems++) {
+    //same as in find() but better syntax
+    delete this[numberOfItems];
+  }
+
+  this.length = numberOfItems;
+  return this;
+};
+
 /***/ }),
 
 /***/ "./src/js/lib/modules/classes.js":
@@ -426,8 +456,9 @@ $('button').click(function () {
 $('div').click(function () {
   console.log($(this).index());
 }); //console.log($('div').eq(2).find('.some'));
+//console.log($('.some').closest('.findme'));
 
-console.log($('.some').closest('.findme'));
+console.log($('.findme').siblings());
 
 /***/ })
 

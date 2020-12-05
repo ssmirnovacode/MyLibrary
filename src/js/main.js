@@ -9,4 +9,6 @@ $('div').click(function() {
 });
 
 //console.log($('div').eq(2).find('.some'));
-console.log($('.some').closest('.findme'));
+//console.log($('.some').closest('.findme'));
+console.log($('.findme').siblings());
+
