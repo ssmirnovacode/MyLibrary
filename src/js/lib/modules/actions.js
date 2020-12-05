@@ -74,8 +74,14 @@ $.prototype.closest = function(selector) {
     let counter = 0; // qty of elems found using closest
 
     for (let i=0; i < this.length; i++) {
-        this[i] = this[i].closest(selector);
-        counter++;
+        if (this[i].closest(selector) == undefined || this[i].closest(selector) == null) {
+            continue;
+        }
+        else {
+            this[i] = this[i].closest(selector);
+            counter++;
+        }
+            
     }
 
     for (; counter < this.length; counter++) {

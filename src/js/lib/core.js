@@ -15,7 +15,6 @@ $.prototype.init = function(selector) {
     Object.assign(this, document.querySelectorAll(selector)); //Object.assign() allows us to copy all properties values from prototype objecto to a target one(this)
     this.length =  document.querySelectorAll(selector).length; 
 
-    console.log(this);
     return this;
 };
 
