@@ -60,6 +60,7 @@ $.prototype.find = function(selector) {
         numberOfItems += arr.length;
     }
 
+    //deleting the 'tail' that might remain in 'this' after recording new key/value pairs
     for (let k=numberOfItems; k < this.length; k++) { 
         delete this[k];
     }
@@ -67,15 +68,21 @@ $.prototype.find = function(selector) {
     this.length = numberOfItems;
 
     return this;
-
-    /* this.length = numberOfItems;
-
-    //deleting the 'tail' that might remain in 'this' after recording new key/value pairs
-    const objLength = Object.keys(this).length;
-    for (; numberOfItems < objLength; numberOfItems++) { // (let k=numberOfItems; k < objLength; k++)
-        delete this[numberOfItems];
-    }
-
-    return this; */
 };
 
+$.prototype.closest = function(selector) {
+    let counter = 0; // qty of elems found using closest
+
+    for (let i=0; i < this.length; i++) {
+        this[i] = this[i].closest(selector);
+        counter++;
+    }
+
+    for (; counter < this.length; counter++) {
+        delete this[counter];
+    }
+
+    this.length = counter;
+
+    return this;
+};
