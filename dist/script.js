@@ -140,7 +140,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_classes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/classes */ "./src/js/lib/modules/classes.js");
 /* harmony import */ var _modules_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/actions */ "./src/js/lib/modules/actions.js");
 /* harmony import */ var _modules_handlers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/handlers */ "./src/js/lib/modules/handlers.js");
+/* harmony import */ var _modules_effects__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/effects */ "./src/js/lib/modules/effects.js");
 //this file will enrich the $ function with different secondary methods
+
 
 
 
@@ -389,6 +391,80 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.toggle = function () {
 
 /***/ }),
 
+/***/ "./src/js/lib/modules/effects.js":
+/*!***************************************!*\
+  !*** ./src/js/lib/modules/effects.js ***!
+  \***************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
+ //Technical function just to launch animation
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.animateOverTime = function (dur, cb, fin) {
+  //fin - final function to be called after the animation
+  let timeStart;
+
+  function _animateOverTime(time) {
+    if (!timeStart) {
+      timeStart = time;
+    }
+
+    let timeElapsed = time - timeStart;
+    let completion = Math.min(timeElapsed / dur, 1); //changing parameters on the page (like opacity etc)
+
+    cb(completion);
+
+    if (timeElapsed < dur) {
+      requestAnimationFrame(_animateOverTime);
+    } else {
+      // when animation has finished
+      if (typeof fin === 'function') {
+        fin();
+      }
+    }
+  }
+
+  return _animateOverTime; // to be able to use it in other methods
+};
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeIn = function (dur, display, fin) {
+  for (let i = 0; i < this.length; i++) {
+    this[i].style.display = display || 'block'; // another way to set default value
+
+    const _fadeIn = completion => {
+      this[i].style.opacity = completion;
+    };
+
+    const ani = this.animateOverTime(dur, _fadeIn, fin);
+    requestAnimationFrame(ani);
+  }
+
+  return this;
+};
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeOut = function (dur, fin) {
+  for (let i = 0; i < this.length; i++) {
+    const _fadeOut = completion => {
+      this[i].style.opacity = 1 - completion;
+
+      if (completion === 1) {
+        // if the element became transparent completely, ...
+        this[i].style.display = 'none'; // ...we hide it from the page
+      }
+    };
+
+    const ani = this.animateOverTime(dur, _fadeOut, fin);
+    requestAnimationFrame(ani);
+  }
+
+  return this;
+};
+
+/***/ }),
+
 /***/ "./src/js/lib/modules/handlers.js":
 /*!****************************************!*\
   !*** ./src/js/lib/modules/handlers.js ***!
@@ -458,7 +534,7 @@ $('div').click(function () {
 }); //console.log($('div').eq(2).find('.some'));
 //console.log($('.some').closest('.findme'));
 
-console.log($('.findme').siblings());
+$('button').fadeIn(1800);
 
 /***/ })
 

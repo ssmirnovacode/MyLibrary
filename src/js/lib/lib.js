@@ -4,5 +4,6 @@ import './modules/display';
 import './modules/classes';
 import './modules/actions';
 import './modules/handlers';
+import './modules/effects';
 
 export default $; // the $ func will be now enriched with imported modules functionality
