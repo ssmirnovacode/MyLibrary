@@ -1,17 +1,9 @@
+@import './general/base.scss'; // better indicate extensions to make sure its compiled well
+@import './general/variables.scss';
+@import './general/typography.scss';
+@import './components/button.scss';
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    color: $danger;
 }
 
-button {
-    width: 150px;
-    height: 40;
-    background-color: lightblue;
-    text-align: center;
-}
-
-.active {
-    font-size: 20px;
-    color: red;
-}

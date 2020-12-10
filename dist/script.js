@@ -533,8 +533,7 @@ $('div').click(function () {
   console.log($(this).index());
 }); //console.log($('div').eq(2).find('.some'));
 //console.log($('.some').closest('.findme'));
-
-$('button').fadeIn(1800);
+//$('button').fadeIn(1800);
 
 /***/ })
 
