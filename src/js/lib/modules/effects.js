@@ -59,3 +59,33 @@ $.prototype.fadeOut = function(dur, fin) {
 
     return this;
 };
+
+$.prototype.fadeToggle = function(dur, display, fin) {
+    for (let i=0; i < this.length; i++) {
+9
+        if (window.getComputedStyle(this [i]).display === 'none') {
+            this[i].style.display = display || 'block'; 
+
+            const _fadeIn = (completion) => {
+                this[i].style.opacity = completion;
+            };
+
+            const ani = this.animateOverTime(dur, _fadeIn, fin);
+            requestAnimationFrame(ani);
+        }
+        else {
+            const _fadeOut = (completion) => {
+                this[i].style.opacity = 1 - completion;
+                if (completion === 1) { // if the element became transparent completely, ...
+                    this[i].style.display = 'none'; // ...we hide it from the page
+                }
+              
+            };
+    
+            const ani = this.animateOverTime(dur, _fadeOut, fin);
+            requestAnimationFrame(ani);
+        }
+    }
+
+    return this;
+};
