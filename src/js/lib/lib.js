@@ -7,5 +7,6 @@ import './modules/handlers';
 import './modules/effects';
 import './components/dropdown';
 import './components/modal';
+import './components/tab';
 
 export default $; // the $ func will be now enriched with imported modules functionality
