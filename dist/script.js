@@ -124,7 +124,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
 
 
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.modal = function () {
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.modal = function (created) {
+  // 'created' pàrameter checks if modal was created dynamically
   for (let i = 0; i < this.length; i++) {
     const target = this[i].getAttribute('data-target');
     Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i]).click(e => {
@@ -132,24 +133,88 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.modal = function () {
       Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).fadeIn(500);
       document.body.style.overflow = 'hidden';
     });
-  }
+    const closeElements = document.querySelectorAll(`${target} [data-close]`); // now we check only the btns inside our i-element
 
-  const closeElements = document.querySelectorAll('[data-close]');
-  closeElements.forEach(elem => {
-    Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])(elem).click(() => {
-      Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])('.modal').fadeOut(500);
-      document.body.style.overflow = '';
+    closeElements.forEach(elem => {
+      Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])(elem).click(() => {
+        Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).fadeOut(500);
+        document.body.style.overflow = '';
+
+        if (created) {
+          document.querySelector(target).remove(); // avoiding dynamic modals to mount up (making the background darker and darker)
+        }
+      });
     });
-  });
-  Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])('.modal').click(e => {
-    if (e.target.classList.contains('modal')) {
-      Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])('.modal').fadeOut(500);
-      document.body.style.overflow = '';
-    }
-  });
+    Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).click(e => {
+      if (e.target.classList.contains('modal')) {
+        Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).fadeOut(500);
+        document.body.style.overflow = '';
+
+        if (created) {
+          document.querySelector(target).remove();
+        }
+      }
+    });
+  }
 };
 
 Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])('[data-toggle="modal"]').modal(); // initializing it on all the modal triggers
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.createModal = function ({
+  text,
+  btns
+} = {}) {
+  for (let i = 0; i < this.length; i++) {
+    let modal = document.createElement('div');
+    modal.classList.add('modal');
+    modal.setAttribute('id', this[i].getAttribute('data-target').slice(1)); //we slice the # out of the attr
+    //btns = {count: num, settings: [[text, classNames=[], close, callback]]}
+
+    const buttons = [];
+
+    for (let j = 0; j < btns.count; j++) {
+      let btn = document.createElement('button');
+      btn.classList.add('btn', ...btns.settings[j][1]); //btns.settings[j][1] - classNames
+
+      btn.textContent = btns.settings[j][0]; // btns.settings[j][0] - text
+
+      if (btns.settings[j][2]) {
+        //btns.settings[j][2] - close true/false
+        btn.setAttribute('data-close', true);
+      }
+
+      if (btns.settings[j][3] && typeof btns.settings[j][3] === 'function') {
+        //btns.settings[j][3] - callback
+        btn.addEventListener('click', btns.settings[j][3]);
+      }
+
+      buttons.push(btn);
+    }
+
+    modal.innerHTML = `
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <button class="close" data-close>
+                        <span>&times;</span>
+                    </button>
+                    <div class="modal-header">
+                        <div class="modal-title">${text.title}</div>
+                    </div>
+                    <div class="modal-body">${text.body}</div>
+                    <div class="modal-footer">
+                           
+                    </div>
+                </div>
+            </div>
+        `;
+    modal.querySelector('.modal-footer').append(...buttons); // spead operator will unwrap and add all btns
+
+    document.body.appendChild(modal);
+    Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i]).modal(true); // binds modal() method to the dynamically created modal
+
+    Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i].getAttribute('data-target')).fadeIn(500); // calling the modal
+  }
+};
 
 /***/ }),
 
@@ -649,6 +714,26 @@ Object(_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('.wrap').html(`
     </div>
     `);
 Object(_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('.dropdown-toggle').dropdown(); //NB! Dynamically-created html block will miss this line in dropdown.js, so we initialize it again
+
+Object(_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('#trigger').click(() => {
+  Object(_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('#trigger').createModal({
+    text: {
+      title: 'Modal title dyn',
+      body: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium vitae, quibusdam saepe, voluptas enim est maxime recusandae quisquam quaerat cupiditate vero illo aliquid ut distinctio facilis aspernatur ducimus blanditiis odio?'
+    },
+    btns: {
+      count: 3,
+      settings: [['Close', // btn text
+      ['btn-danger', 'mr-10'], true // closing btn
+      ], ['Save changes', ['btn-success'], false, () => {
+        // callback function
+        alert('Data is saved!');
+      }], ['Anther btn', ['btn-warning', 'ml-10'], false, () => {
+        alert('Hi there');
+      }]]
+    }
+  });
+});
 
 /***/ })
 

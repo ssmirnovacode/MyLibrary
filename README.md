@@ -9,6 +9,7 @@ EXTRA tasks:
 3. Make eq() method better looking code
 3. Optimize fadeToggle() (using technical methods and functions)
 4. Add bugfix of jumping modal (like in course)
+5. optimize createModal with destructurization (btns.settings repeated many times)
 
 
 STUDY BETTER:
