@@ -5,5 +5,6 @@ import './modules/classes';
 import './modules/actions';
 import './modules/handlers';
 import './modules/effects';
+import './components/dropdown';
 
 export default $; // the $ func will be now enriched with imported modules functionality

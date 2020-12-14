@@ -1,0 +1,40 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+    &-toggle {
+        &:after { // styles for the small arrow icon
+            content: '';
+            display: inline-block;
+            margin-left: 5px;
+            vertical-align: 3px;
+            border-top: 4px solid;
+            border-right: 4px solid transparent;
+            border-bottom: 0;
+            border-left: 4px solid transparent;
+        }
+    }
+    &-menu {
+        position: absolute;
+        top: 100%; // so dropdown starts exactly where the button ends
+        left: 0;
+        z-index: 1000;
+        display: none;
+        border: 1px solid rgba(0,0,0,.15);
+        border-radius: 2px;
+        background-color: #fff; // to avoid versions in different browsers
+        min-width: 100%;
+        padding: 10 px 0;
+    }
+    &-item {
+        display: block;
+        width: 100%;
+        padding: 7px 10px;
+        color: $dark;
+        background-color: transparent; // will adopt parent`s color
+        border: 0;
+        text-decoration: none;
+        &:hover {
+            background-color: rgba(0,0,0, .05);
+        }
+    }
+}
