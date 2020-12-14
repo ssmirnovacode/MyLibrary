@@ -10,3 +10,4 @@ $.prototype.dropdown = function() {
 };
 
 $('.dropdown-toggle').dropdown(); //we have markup in html done already so we initialise it here
+//NB! Dynamically-created html block will miss this line, so we initialize it again in main.js

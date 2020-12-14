@@ -11,3 +11,18 @@ $('[data-count="second"]').on('click', () => {
 $('button').eq(2).on('click', () => {
     $('.w-500').fadeToggle(800);
 });
+
+// creating the html markup for dropdown dynamically:
+$('.wrap').html(
+    `
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" id="dropdownMenuButton" >Dropdown button</button>
+        <div class="dropdown-menu" data-toggle-id="dropdownMenuButton">
+            <a href="#" class="dropdown-item">Action</a>
+            <a href="#" class="dropdown-item">Action 2</a>
+            <a href="#" class="dropdown-item">Action 3</a>
+        </div>
+    </div>
+    `
+);
+$('.dropdown-toggle').dropdown(); //NB! Dynamically-created html block will miss this line in dropdown.js, so we initialize it again
