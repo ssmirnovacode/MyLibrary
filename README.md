@@ -8,6 +8,7 @@ EXTRA tasks:
 2. Create a module attributes.js (analogue of classes.js)
 3. Make eq() method better looking code
 3. Optimize fadeToggle() (using technical methods and functions)
+4. Add bugfix of jumping modal (like in course)
 
 
 STUDY BETTER:
