@@ -8,8 +8,6 @@ $.prototype.carousel = function(autoplay=false) {
             btnNext = this[i].querySelector('.carousel-next'),
             dots = this[i].querySelectorAll('.carousel-indicators li');
 
-            console.log(slides);
-
         let slideIndex = 0;
 
         function hideSlides() {

@@ -10,5 +10,6 @@ import './components/modal';
 import './components/tab';
 import './components/accordion';
 import './components/carousel';
+import './services/requests';
 
 export default $; // the $ func will be now enriched with imported modules functionality
