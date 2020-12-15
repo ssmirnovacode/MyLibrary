@@ -138,6 +138,7 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.carousel = function () {
           btnPrev = this[i].querySelector('.carousel-prev'),
           btnNext = this[i].querySelector('.carousel-next'),
           dots = this[i].querySelectorAll('.carousel-indicators li');
+    console.log(slides);
     let slideIndex = 0;
 
     function hideSlides() {
@@ -149,38 +150,46 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.carousel = function () {
     hideSlides();
     slides[slideIndex].style.width = width;
     dots.forEach((item, i) => {
-      item.click(() => {
+      item.addEventListener('click', () => {
         hideSlides();
         slides[i].style.width = width;
+        dots.forEach(dot => {
+          dot.classList.remove('active');
+        });
+        item.classList.add('active');
       });
     });
-    btnPrev.click(e => {
+    Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])(btnPrev).click(e => {
       e.preventDefault();
-      e.stopPropagation();
+      hideSlides();
 
       if (slideIndex > 0) {
         slideIndex--;
-        hideSlides();
-        slides[slideIndex].style.width = width;
       } else {
         slideIndex = slides.length - 1;
-        hideSlides();
-        slides[slideIndex].style.width = width;
       }
+
+      slides[slideIndex].style.width = width;
+      dots.forEach(dot => {
+        dot.classList.remove('active');
+      });
+      dots[slideIndex].classList.add('active');
     });
-    btnNext.click(e => {
+    Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])(btnNext).click(e => {
       e.preventDefault();
-      e.stopPropagation();
+      hideSlides();
 
       if (slideIndex < slides.length - 1) {
         slideIndex++;
-        hideSlides();
-        slides[slideIndex].style.width = width;
       } else {
         slideIndex = 0;
-        hideSlides();
-        slides[slideIndex].style.width = width;
       }
+
+      slides[slideIndex].style.width = width;
+      dots.forEach(dot => {
+        dot.classList.remove('active');
+      });
+      dots[slideIndex].classList.add('active');
     });
   }
 };
