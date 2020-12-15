@@ -1,70 +1,87 @@
 import $ from '../core';
 
-$.prototype.carousel = function() {
-    for (let i = 0 ;i < this.length; i++) {
-        const width = window.getComputedStyle(this[i].querySelector('.carousel-inner')).width;
-        const slides = this[i].querySelectorAll('.carousel-item');
-        const slidesField = this[i].querySelector('.carousel-slides');
-        const dots = this[i].querySelectorAll('.carousel-indicators li');
+$.prototype.carousel = function(autoplay=false) {
+    for (let i=0; i < this.length; i++) {
+        const width = window.getComputedStyle(this[i].querySelector('.carousel-inner')).width, //we get width from computed width of the wrapper
+            slides = this[i].querySelectorAll('.carousel-item'),
+            btnPrev = this[i].querySelector('.carousel-prev'),
+            btnNext = this[i].querySelector('.carousel-next'),
+            dots = this[i].querySelectorAll('.carousel-indicators li');
 
-        slidesField.style.width = 100 * slides.length + '%';
-        slides.forEach(slide => {
-            slide.style.width = width;
-        });
+            console.log(slides);
 
-        let offset = 0;
         let slideIndex = 0;
 
-        $(this[i].querySelector('[data-slide="next"]')).click((e) => {
+        function hideSlides() {
+            slides.forEach(slide => {
+                slide.style.width = '0px';
+            });
+        }
+        hideSlides();
+        
+        slides[slideIndex].style.width = width;
+
+        if (autoplay) {
+            setInterval( () => {
+                hideSlides();
+                if (slideIndex < slides.length-1) {
+                    slideIndex++;    
+                }
+                else {
+                    slideIndex = 0;  
+                }
+                slides[slideIndex].style.width = width;
+                dots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
+                dots[slideIndex].classList.add('active');
+            }, 1500);
+        }
+
+        dots.forEach((item,i) => {
+            item.addEventListener('click', () => {
+                hideSlides();
+                slides[i].style.width = width;
+                dots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
+                item.classList.add('active');
+            });
+        });
+    
+
+        $(btnPrev).click( (e) => {
             e.preventDefault();
-            if (offset == (+width.replace(/\D/g, '') * (slides.length - 1))) {
-                offset = 0;
-            } else {
-                offset += +width.replace(/\D/g, '');
+            hideSlides();
+            if (slideIndex > 0) {
+                slideIndex--;                
             }
-
-            slidesField.style.transform = `translateX(-${offset}px)`;
-
-            if (slideIndex == slides.length - 1) {
-                slideIndex = 0;
-            } else {
-                slideIndex++;
+            else {
+                slideIndex = slides.length-1;
             }
-            dots.forEach(dot => dot.classList.remove('active'));
+            slides[slideIndex].style.width = width;
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+            });
             dots[slideIndex].classList.add('active');
         });
 
-        $(this[i].querySelector('[data-slide="prev"]')).click((e) => {
+        $(btnNext).click( (e) => {
             e.preventDefault();
-            if (offset == 0) {
-                offset = +width.replace(/\D/g, '') * (slides.length - 1);
-            } else {
-                offset -= +width.replace(/\D/g, '');
+            hideSlides();
+            if (slideIndex < slides.length-1) {
+                slideIndex++;    
             }
-
-            slidesField.style.transform = `translateX(-${offset}px)`;
-
-            if (slideIndex == 0) {
-                slideIndex = slides.length - 1;
-            } else {
-                slideIndex--;
+            else {
+                slideIndex = 0;  
             }
-            dots.forEach(dot => dot.classList.remove('active'));
+            slides[slideIndex].style.width = width;
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+            });
             dots[slideIndex].classList.add('active');
         });
-
-        const sliderId = this[i].getAttribute('id');
-        $(`#${sliderId} .carousel-indicators li`).click(e => {
-            const slideTo = e.target.getAttribute('data-slide-to');
-
-            slideIndex = slideTo;
-            offset = +width.replace(/\D/g, '') * slideTo;
-
-            slidesField.style.transform = `translateX(-${offset}px)`;
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[slideIndex].classList.add('active');
-        }); 
     }
 };
 
-$('.carousel').carousel();
+$('.carousel').carousel(true);
