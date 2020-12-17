@@ -24,9 +24,6 @@ To set up MyLibray to your project you only need to copy the script.js and style
     <link rel="stylesheet" href="">
 </head>
 <body>
-
-    <!-- Your markup code here -->
-
     <!-- MyLibrary js file -->
     <script src="js/script.js"></script>
     <!-- Your own scripts if required -->
