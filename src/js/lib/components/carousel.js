@@ -1,6 +1,6 @@
 import $ from '../core';
 
-$.prototype.carousel = function(autoplay=false) {
+$.prototype.carousel = function() {
     for (let i=0; i < this.length; i++) {
         const width = window.getComputedStyle(this[i].querySelector('.carousel-inner')).width, //we get width from computed width of the wrapper
             slides = this[i].querySelectorAll('.carousel-item'),
@@ -19,22 +19,25 @@ $.prototype.carousel = function(autoplay=false) {
         
         slides[slideIndex].style.width = width;
 
-        if (autoplay) {
-            setInterval( () => {
-                hideSlides();
-                if (slideIndex < slides.length-1) {
-                    slideIndex++;    
-                }
-                else {
-                    slideIndex = 0;  
-                }
-                slides[slideIndex].style.width = width;
-                dots.forEach(dot => {
-                    dot.classList.remove('active');
-                });
-                dots[slideIndex].classList.add('active');
-            }, 1500);
-        }
+        try {
+            if (this[i].classList.contains('autoplay')) {
+                setInterval( () => {
+                    hideSlides();
+                    if (slideIndex < slides.length-1) {
+                        slideIndex++;    
+                    }
+                    else {
+                        slideIndex = 0;  
+                    }
+                    slides[slideIndex].style.width = width;
+                    dots.forEach(dot => {
+                        dot.classList.remove('active');
+                    });
+                    dots[slideIndex].classList.add('active');
+                }, this[i].getAttribute('data-speed') * 1000);
+            }
+        } catch(e) {}
+        
 
         dots.forEach((item,i) => {
             item.addEventListener('click', () => {
@@ -82,4 +85,4 @@ $.prototype.carousel = function(autoplay=false) {
     }
 };
 
-$('.carousel').carousel(true);
+$('.carousel').carousel();

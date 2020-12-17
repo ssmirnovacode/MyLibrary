@@ -146,6 +146,14 @@ To set up the carousel component, the following markup is required:
     </a>
 </div>```
 
+Autoplay option: to enable automatic slide change: 
+1. Add class "autoplay" to the div with class carousel
+2. Add data-speed="", putting a number as value (1 for 1000ms, 2 for 2000ms etc) to set the slides change speed
+```
+<div class="carousel autoplay" data-speed="3" id="myCarousel">
+```
+
+
 //example with a screenshot can be added here ---------------------------
 
 2.5. Cards 
