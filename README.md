@@ -63,7 +63,7 @@ To set up the tabs js-component, the following markup is required:
 </div>
 ```
 
-//example with a screenshot can be added here ---------------------------
+![tabs](https://b.radikal.ru/b12/2012/c4/866c1bc92cb7.png)
 
 
 ***2.2. Modal***
@@ -96,7 +96,7 @@ Modal requires a trigger, where specific data-attributes must be added to markup
  <a href="#"  id="trigger" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Link to</a>
  ```
 
-    //example with a screenshot can be added here ---------------------------
+![modal](https://c.radikal.ru/c11/2012/38/4ac6dc9393f7.png)
 
 ***2.3. Accordion***
 
@@ -122,7 +122,7 @@ To set up the accordion component, the following markup is required:
 </div>
 ```
 
-//example with a screenshot can be added here ---------------------------
+![Accordion](https://b.radikal.ru/b05/2012/84/9e41262e0df8.png)
 
 ***2.4. Carousel (slider)***
 
@@ -164,7 +164,7 @@ Autoplay option: to enable automatic slide change:
 ```
 <div class="carousel autoplay" data-speed="3" id="myCarousel">
 ```
-//example with a screenshot can be added here ---------------------------
+![carousel](https://b.radikal.ru/b26/2012/d3/248f44e636a0.png)
 
 ***2.5. Cards***
 
@@ -192,7 +192,7 @@ To set up the cards component, the following markup is required:
 </div>
 ```
 
-//example with a screenshot can be added here ---------------------------
+![card](https://c.radikal.ru/c24/2012/d7/6a0952ae0d49.png)
       
 
 ***2.6. Dropdown***
@@ -210,7 +210,7 @@ To set up the dropdown component, the following markup is required:
 </div>
 ```
 
-//example with a screenshot can be added here ---------------------------
+![dropdown](https://a.radikal.ru/a23/2012/f2/8bb9bddcf630.png)
 
 **3. MODULES **
 
@@ -577,3 +577,4 @@ MyLibrary has a variety of custom ready-to-use CSS-classes specified below.
 
 ---------------------------
 The documentation above will be updated according the new versions of MyLibrary
+
