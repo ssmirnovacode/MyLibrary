@@ -191,7 +191,8 @@ To set up the cards component, the following markup is required:
 
 To set up the dropdown component, the following markup is required:
 
-```<div class="dropdown">
+```
+<div class="dropdown">
     <button class="btn dropdown-toggle" id="dropdownMenuButton" >Dropdown button</button>
     <div class="dropdown-menu" data-toggle-id="dropdownMenuButton">
         <a href="#" class="dropdown-item">Action</a>
@@ -207,7 +208,8 @@ To set up the dropdown component, the following markup is required:
 
 Different MyLibrary methods can de initialized following the example:
 
-```$(selector).methodName();
+```
+$(selector).methodName();
 ```
 
 $(selector) - object containing element(s) according to chosen selector. Essentially, it´s the same as document.querySelectorAll(selector).
