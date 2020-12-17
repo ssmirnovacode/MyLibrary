@@ -8,7 +8,7 @@ Most frequently used actions and DOM manipulations are simplified to one word co
 
 Pre-coded CSS styles implemented through html markup classes and data attributes can be consulted in the "CSS" section.
 
-##1. QUICK START:
+**1. QUICK START:**
 
 To set up MyLibray to your project you only need to copy the script.js and styles.css files into corresponding folders and link them to your index.html file:
 
@@ -35,11 +35,11 @@ To set up MyLibray to your project you only need to copy the script.js and style
 
 The pre-coded components will require specific html markup tha will be provided further below in "components" section.
 
-2. COMPONENTS
+**2. COMPONENTS**
 
 The classes indicated in html markup aremandatory for proper functioning of the components. Additional classes can be added for further custom styling ("CSS" section).
 
-2.1 Tabs
+***2.1 Tabs***
 
 To set up the tabs js-component, the following markup is required: 
 
@@ -66,7 +66,7 @@ To set up the tabs js-component, the following markup is required:
 //example with a screenshot can be added here ---------------------------
 
 
-2.2. Modal
+***2.2. Modal***
 
 To set up the modal component, the following markup is required:
 
@@ -98,7 +98,7 @@ Modal requires a trigger, where specific data-attributes must be added to markup
 
     //example with a screenshot can be added here ---------------------------
 
-2.3. Accordion
+***2.3. Accordion***
 
 To set up the accordion component, the following markup is required:
 
@@ -124,7 +124,7 @@ To set up the accordion component, the following markup is required:
 
 //example with a screenshot can be added here ---------------------------
 
-2.4. Carousel (slider)
+***2.4. Carousel (slider)***
 
 To set up the carousel component, the following markup is required:
 
@@ -166,7 +166,7 @@ Autoplay option: to enable automatic slide change:
 ```
 //example with a screenshot can be added here ---------------------------
 
-2.5. Cards 
+***2.5. Cards ***
 
 To set up the cards component, the following markup is required:
 
@@ -195,7 +195,7 @@ To set up the cards component, the following markup is required:
 //example with a screenshot can be added here ---------------------------
       
 
-2.6. Dropdown
+***2.6. Dropdown***
 
 To set up the dropdown component, the following markup is required:
 
@@ -212,7 +212,7 @@ To set up the dropdown component, the following markup is required:
 
 //example with a screenshot can be added here ---------------------------
 
-3. MODULES 
+**3. MODULES **
 
 Different MyLibrary methods can de initialized following the example:
 ```
@@ -225,7 +225,7 @@ Each method returns the modified object (element), so chaining is available:
 $(selector).methodName1().methodName2();
 ```
 
-3.1. DOM elements manipulation methods
+***3.1. DOM elements manipulation methods***
 
 
 
@@ -265,7 +265,7 @@ $(selector).siblings(selector);
 ```
 
 
-3.2. Event handlers
+***3.2. Event handlers***
 
 
 3.2.1. on(eventName, callback)
@@ -290,7 +290,7 @@ $(selector).click(callback);
 ```
 
 
-3.3. classList property changing methods
+***3.3. classList property changing methods***
 
 
 3.3.1. addClass(...classNames)
@@ -314,7 +314,7 @@ toggleClass() method is a shorter version of classList.toggle():.
 $(selector).toggleClass(className);
 ```
 
-3.4. Display property changing methods
+***3.4. Display property changing methods***
 
 
 3.4.1. show()
@@ -339,7 +339,7 @@ $(selector).toggle();
 ```
 
 
-3.5. Animation methods
+***3.5. Animation methods***
 
 
 3.5.1. fadeIn(duration, callback, fin) 
@@ -376,7 +376,7 @@ $(selector).fadeToggle(duration, callback, fin);
 ```
 
 
-3.6. Server requests methods
+***3.6. Server requests methods***
 
 
 3.6.1. get(url, dataTypeAnswer)
@@ -398,12 +398,12 @@ dataTypeAnswer - data format (set to 'json' format as default)
 ```
 $(selector).post(url, dataTypeAnswer);
 ```
-4. CSS 
+**4. CSS **
 
 MyLibrary has a variety of custom ready-to-use CSS-classes specified below.
 
 
-4.1. Text align classes 
+***4.1. Text align classes ***
 ```
 .text-center {
     text-align: center;
@@ -413,7 +413,7 @@ MyLibrary has a variety of custom ready-to-use CSS-classes specified below.
 }
 ```
 
-4.2. Display options classes
+***4.2. Display options classes***
 ```
 .hidden {
     visibility: hidden;
@@ -442,7 +442,7 @@ MyLibrary has a variety of custom ready-to-use CSS-classes specified below.
 }
 ```
 
-4.3. Font modifying classes
+***4.3. Font modifying classes***
 ```
 .fz-16 {
     font-size: 16px;
@@ -479,7 +479,7 @@ MyLibrary has a variety of custom ready-to-use CSS-classes specified below.
 }
 ```
 
-4.4. Margin modifying classes
+***4.4. Margin modifying classes***
 ```
 .m10 {
     margin: 10px;
@@ -513,7 +513,7 @@ MyLibrary has a variety of custom ready-to-use CSS-classes specified below.
 }
 ```
 
-4.5. Padding modifying classes
+***4.5. Padding modifying classes***
 ```
 .p10 {
     padding: 10px;
@@ -547,7 +547,7 @@ MyLibrary has a variety of custom ready-to-use CSS-classes specified below.
 }
 ```
 
-4.6. Width and height classes
+***4.6. Width and height classes***
 ```
 .w-100 {
     width: 100%;
