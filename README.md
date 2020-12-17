@@ -166,7 +166,7 @@ Autoplay option: to enable automatic slide change:
 ```
 //example with a screenshot can be added here ---------------------------
 
-***2.5. Cards ***
+***2.5. Cards***
 
 To set up the cards component, the following markup is required:
 
