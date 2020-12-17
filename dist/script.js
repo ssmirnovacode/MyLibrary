@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
 
 
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.carousel = function (autoplay = false) {
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.carousel = function () {
   for (let i = 0; i < this.length; i++) {
     const width = window.getComputedStyle(this[i].querySelector('.carousel-inner')).width,
           //we get width from computed width of the wrapper
@@ -149,23 +149,25 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.carousel = function (aut
     hideSlides();
     slides[slideIndex].style.width = width;
 
-    if (autoplay) {
-      setInterval(() => {
-        hideSlides();
+    try {
+      if (this[i].classList.contains('autoplay')) {
+        setInterval(() => {
+          hideSlides();
 
-        if (slideIndex < slides.length - 1) {
-          slideIndex++;
-        } else {
-          slideIndex = 0;
-        }
+          if (slideIndex < slides.length - 1) {
+            slideIndex++;
+          } else {
+            slideIndex = 0;
+          }
 
-        slides[slideIndex].style.width = width;
-        dots.forEach(dot => {
-          dot.classList.remove('active');
-        });
-        dots[slideIndex].classList.add('active');
-      }, 1500);
-    }
+          slides[slideIndex].style.width = width;
+          dots.forEach(dot => {
+            dot.classList.remove('active');
+          });
+          dots[slideIndex].classList.add('active');
+        }, this[i].getAttribute('data-speed') * 1000);
+      }
+    } catch (e) {}
 
     dots.forEach((item, i) => {
       item.addEventListener('click', () => {
@@ -212,7 +214,7 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.carousel = function (aut
   }
 };
 
-Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])('.carousel').carousel(true);
+Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])('.carousel').carousel();
 
 /***/ }),
 
