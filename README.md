@@ -8,11 +8,11 @@ Most frequently used actions and DOM manipulations are simplified to one word co
 
 Pre-coded CSS styles implemented through html markup classes and data attributes can be consulted in the "CSS" section.
 
-##1. QUICK START:
+1. QUICK START:
 
 To set up MyLibray to your project you only need to copy the script.js and styles.css files into corresponding folders and link them to your index.html file:
 
-<!DOCTYPE html>
+`<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,35 +29,35 @@ To set up MyLibray to your project you only need to copy the script.js and style
     <!-- Your own scripts if required -->
     <script src=""></script>
 </body>
-</html>
+</html>`
 
 The pre-coded components will require specific html markup tha will be provided further below in "components" section.
 
-##2. COMPONENTS
+2. COMPONENTS
 
 The classes indicated in html markup aremandatory for proper functioning of the components. Additional classes can be added for further custom styling ("CSS" section).
 
-###2.1 Tabs
+2.1 Tabs
 
 To set up the tabs js-component, the following markup is required: 
 
-<div class="tab">
-            <div class="tab-panel" data-tabpanel>
-                <div class="tab-item tab-item--active">...</div>
-                ...
-                <div class="tab-item">...</div>
-            </div>
-            <div class="tab-content tab-content--active">
-                
-               <!--  Your tab content here -->
-                
-            </div>
-            ....
-            <div class="tab-content">
-                
-            </div>
-            </div>
-</div>
+`<div class="tab">
+    <div class="tab-panel" data-tabpanel>
+        <div class="tab-item tab-item--active">...</div>
+        ...
+        <div class="tab-item">...</div>
+    </div>
+    <div class="tab-content tab-content--active">
+        
+        <!--  Your tab content here -->
+        
+    </div>
+    ....
+    <div class="tab-content">
+        
+    </div>
+    </div>
+</div>`
 
 //example with a screenshot can be added here ---------------------------
 
@@ -66,27 +66,27 @@ To set up the tabs js-component, the following markup is required:
 
 To set up the modal component, the following markup is required:
 
-<div class="modal" id="exampleModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <button class="close" data-close>
-                    <span>&times;</span>
-                </button>
-                <div class="modal-header">
-                    <div class="modal-title">Modal title</div>
-                </div>
-                <div class="modal-body">Lorem, ipsum dolor sit </div>
-                <div class="modal-footer">
-                    <button class="btn" data-close>Close</button>
-                    <button class="btn">Submit</button>    
-                </div>
+`<div class="modal" id="exampleModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button class="close" data-close>
+                <span>&times;</span>
+            </button>
+            <div class="modal-header">
+                <div class="modal-title">Modal title</div>
+            </div>
+            <div class="modal-body">Lorem, ipsum dolor sit </div>
+            <div class="modal-footer">
+                <button class="btn" data-close>Close</button>
+                <button class="btn">Submit</button>    
             </div>
         </div>
     </div>
+</div>`
 
 Modal requires a trigger, where specific data-attributes must be added to markup - data-toggle="modal"  data-target="#exampleModal" (the value can be random, but it MUST match the modal id). For example:
 
- <a href="#"  id="trigger" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Link to</a>
+ `<a href="#"  id="trigger" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Link to</a>`
 
     //example with a screenshot can be added here ---------------------------
 
@@ -94,23 +94,23 @@ Modal requires a trigger, where specific data-attributes must be added to markup
 
 To set up the accordion component, the following markup is required:
 
-<div class="accordion">
-        <div class="accordion-head">
-            <span>Accordion title</span>
-        </div>
-        <div class="accordion-content">
-            <div class="accordion-inner">Lorem ipsum dolor</div>
-        </div>
+`<div class="accordion">
+    <div class="accordion-head">
+        <span>Accordion title</span>
+    </div>
+    <div class="accordion-content">
+        <div class="accordion-inner">Lorem ipsum dolor</div>
+    </div>
 
-            ...
+        ...
 
-        <div class="accordion-head">
-            <span>Accordion title</span>
-        </div>
-        <div class="accordion-content">
-            <div class="accordion-inner">Lorem ipsum dolor</div>
-        </div>
-</div>
+    <div class="accordion-head">
+        <span>Accordion title</span>
+    </div>
+    <div class="accordion-content">
+        <div class="accordion-inner">Lorem ipsum dolor</div>
+    </div>
+</div>`
 
 //example with a screenshot can be added here ---------------------------
 
@@ -118,7 +118,7 @@ To set up the accordion component, the following markup is required:
 
 To set up the carousel component, the following markup is required:
 
-<div class="carousel" id="myCarousel">
+`<div class="carousel" id="myCarousel">
     <ol class="carousel-indicators">
         <li class="active"  data-slide-to="0"></li>
         <li data-slide-to="1"></li>
@@ -144,7 +144,7 @@ To set up the carousel component, the following markup is required:
     <a href="#" class="carousel-next" data-slide="next">
         <span class="carousel-next-icon">&gt;</span>
     </a>
-</div>
+</div>`
 
 //example with a screenshot can be added here ---------------------------
 
@@ -152,25 +152,25 @@ To set up the carousel component, the following markup is required:
 
 To set up the cards component, the following markup is required:
 
-<div class="goods d-flex f-space-around">
-            <div class="card">
-                <img class="card-img" src="" alt="photo">
-                <div class="card-body">
-                    <div class="card-title">Card title 1</div>
-                    <p class="card-text">Lorem ipsum
-                    </p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img" src="" alt="photo">
-                <div class="card-body">
-                    <div class="card-title">Card title 2</div>
-                    <p class="card-text">Lorem ipsum
-                    </p>
-                   
-                </div>
-            </div>
-       </div>
+`<div class="goods d-flex f-space-around">
+    <div class="card">
+        <img class="card-img" src="" alt="photo">
+        <div class="card-body">
+            <div class="card-title">Card title 1</div>
+            <p class="card-text">Lorem ipsum
+            </p>
+        </div>
+    </div>
+    <div class="card">
+        <img class="card-img" src="" alt="photo">
+        <div class="card-body">
+            <div class="card-title">Card title 2</div>
+            <p class="card-text">Lorem ipsum
+            </p>
+            
+        </div>
+    </div>
+</div>`
 
 //example with a screenshot can be added here ---------------------------
       
@@ -179,14 +179,14 @@ To set up the cards component, the following markup is required:
 
 To set up the dropdown component, the following markup is required:
 
-<div class="dropdown">
-            <button class="btn dropdown-toggle" id="dropdownMenuButton" >Dropdown button</button>
-            <div class="dropdown-menu" data-toggle-id="dropdownMenuButton">
-                <a href="#" class="dropdown-item">Action</a>
-                <a href="#" class="dropdown-item">Action 2</a>
-                <a href="#" class="dropdown-item">Action 3</a>
-            </div>
-</div>
+`<div class="dropdown">
+    <button class="btn dropdown-toggle" id="dropdownMenuButton" >Dropdown button</button>
+    <div class="dropdown-menu" data-toggle-id="dropdownMenuButton">
+        <a href="#" class="dropdown-item">Action</a>
+        <a href="#" class="dropdown-item">Action 2</a>
+        <a href="#" class="dropdown-item">Action 3</a>
+    </div>
+</div>`
 
 //example with a screenshot can be added here ---------------------------
 
