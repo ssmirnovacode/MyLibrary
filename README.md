@@ -8,7 +8,7 @@ Most frequently used actions and DOM manipulations are simplified to one word co
 
 Pre-coded CSS styles implemented through html markup classes and data attributes can be consulted in the "CSS" section.
 
-1. QUICK START:
+##1. QUICK START:
 
 To set up MyLibray to your project you only need to copy the script.js and styles.css files into corresponding folders and link them to your index.html file:
 
@@ -33,11 +33,11 @@ To set up MyLibray to your project you only need to copy the script.js and style
 
 The pre-coded components will require specific html markup tha will be provided further below in "components" section.
 
-2. COMPONENTS
+##2. COMPONENTS
 
 The classes indicated in html markup aremandatory for proper functioning of the components. Additional classes can be added for further custom styling ("CSS" section).
 
-2.1 Tabs
+###2.1 Tabs
 
 To set up the tabs js-component, the following markup is required: 
 
