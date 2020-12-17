@@ -12,7 +12,8 @@ Pre-coded CSS styles implemented through html markup classes and data attributes
 
 To set up MyLibray to your project you only need to copy the script.js and styles.css files into corresponding folders and link them to your index.html file:
 
-```<!DOCTYPE html>
+```
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,7 +30,8 @@ To set up MyLibray to your project you only need to copy the script.js and style
     <!-- Your own scripts if required -->
     <script src=""></script>
 </body>
-</html>```
+</html>
+```
 
 The pre-coded components will require specific html markup tha will be provided further below in "components" section.
 
@@ -41,7 +43,8 @@ The classes indicated in html markup aremandatory for proper functioning of the 
 
 To set up the tabs js-component, the following markup is required: 
 
-```<div class="tab">
+```
+<div class="tab">
     <div class="tab-panel" data-tabpanel>
         <div class="tab-item tab-item--active">...</div>
         ...
@@ -57,7 +60,8 @@ To set up the tabs js-component, the following markup is required:
         
     </div>
     </div>
-</div>```
+</div>
+```
 
 //example with a screenshot can be added here ---------------------------
 
@@ -66,7 +70,8 @@ To set up the tabs js-component, the following markup is required:
 
 To set up the modal component, the following markup is required:
 
-```<div class="modal" id="exampleModal">
+```
+<div class="modal" id="exampleModal">
     <div class="modal-dialog">
         <div class="modal-content">
             <button class="close" data-close>
@@ -82,11 +87,14 @@ To set up the modal component, the following markup is required:
             </div>
         </div>
     </div>
-</div>```
+</div>
+```
 
 Modal requires a trigger, where specific data-attributes must be added to markup - data-toggle="modal"  data-target="#exampleModal" (the value can be random, but it MUST match the modal id). For example:
 
- ```<a href="#"  id="trigger" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Link to</a>```
+ ```
+ <a href="#"  id="trigger" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Link to</a>
+ ```
 
     //example with a screenshot can be added here ---------------------------
 
@@ -94,7 +102,8 @@ Modal requires a trigger, where specific data-attributes must be added to markup
 
 To set up the accordion component, the following markup is required:
 
-```<div class="accordion">
+```
+<div class="accordion">
     <div class="accordion-head">
         <span>Accordion title</span>
     </div>
@@ -110,7 +119,8 @@ To set up the accordion component, the following markup is required:
     <div class="accordion-content">
         <div class="accordion-inner">Lorem ipsum dolor</div>
     </div>
-</div>```
+</div>
+```
 
 //example with a screenshot can be added here ---------------------------
 
@@ -144,7 +154,8 @@ To set up the carousel component, the following markup is required:
     <a href="#" class="carousel-next" data-slide="next">
         <span class="carousel-next-icon">&gt;</span>
     </a>
-</div>```
+</div>
+```
 
 //example with a screenshot can be added here ---------------------------
 
@@ -170,7 +181,8 @@ To set up the cards component, the following markup is required:
             
         </div>
     </div>
-</div>```
+</div>
+```
 
 //example with a screenshot can be added here ---------------------------
       
@@ -186,7 +198,8 @@ To set up the dropdown component, the following markup is required:
         <a href="#" class="dropdown-item">Action 2</a>
         <a href="#" class="dropdown-item">Action 3</a>
     </div>
-</div>```
+</div>
+```
 
 //example with a screenshot can be added here ---------------------------
 
