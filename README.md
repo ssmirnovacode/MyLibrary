@@ -212,7 +212,7 @@ To set up the dropdown component, the following markup is required:
 
 ![dropdown](https://a.radikal.ru/a23/2012/f2/8bb9bddcf630.png)
 
-**3. MODULES **
+**3. MODULES**
 
 Different MyLibrary methods can de initialized following the example:
 ```
@@ -576,5 +576,5 @@ MyLibrary has a variety of custom ready-to-use CSS-classes specified below.
 ```
 
 ---------------------------
-The documentation above will be updated according the new versions of MyLibrary
+The documentation above will be updated with new features of MyLibrary
 
