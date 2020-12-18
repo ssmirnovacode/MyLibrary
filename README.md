@@ -384,7 +384,7 @@ $(selector).fadeToggle(duration, callback, fin);
 A shorter version of fetch API for GET requests with following parameters:
 
 url - path to the Server
-dataTypeAnswer - data format (set to 'json' format as default)
+dataTypeAnswer - data format (set to 'json' format as default). Current library version supports 'json' and 'text' formats.
 ```
 $(selector).get(url, dataTypeAnswer);
 ```
