@@ -8,6 +8,15 @@ Most frequently used actions and DOM manipulations are simplified to one word co
 
 Pre-coded CSS styles implemented through html markup classes and data attributes can be consulted in the "CSS" section.
 
+**INDEX**
+
+
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
+
+
 **1. QUICK START:**
 
 To set up MyLibray to your project you only need to copy the script.js and styles.css files into corresponding folders and link them to your index.html file:
@@ -37,7 +46,7 @@ The pre-coded components will require specific html markup tha will be provided 
 
 **2. COMPONENTS**
 
-The classes indicated in html markup aremandatory for proper functioning of the components. Additional classes can be added for further custom styling ("CSS" section).
+The classes indicated in html markup are mandatory for proper functioning of the components. Additional classes can be added for further custom styling ("CSS" section).
 
 ***2.1 Tabs***
 
