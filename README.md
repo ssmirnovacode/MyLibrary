@@ -11,47 +11,47 @@ Pre-coded CSS styles implemented through html markup classes and data attributes
 ## INDEX
 
 
-[1. QUICK START](## 1. quick start)
-[2. COMPONENTS](## 2.components)
-    2.1 Tabs
-    2.2. Modal
-    2.3. Accordion
-    2.4. Carousel (slider)
-    2.5. Cards
-    2.6. Dropdown
-[3. MODULES](## 3. modules)
-    [3.1. DOM elements manipulation methods](### 3.1. DOM elements manipulation methods)
-        3.1.1. html(content)
-        3.1.2. eq(index) 
-        3.1.3. index()
-        3.1.4. find(selector)
-        3.1.5. siblings(selector)
-    3.2. Event handlers
-        3.2.1. on(eventName, callback)
-        3.2.2. off(eventName, callback)
-        3.2.3. click(callback)
-    3.3. classList property changing methods
-        3.3.1. addClass(...classNames)
-        3.3.2. removeClass(...classNames)
-        3.3.3. toggleClass(className)
-    3.4. Display property changing methods
-        3.4.1. show()
-        3.4.2. hide()
-        3.4.3. toggle()
-    3.5. Animation methods
-        3.5.1. fadeIn(duration, callback, fin) 
-        3.5.2. fadeOut(duration, callback, fin) 
-        3.5.3. fadeToggle(duration, callback, fin) 
-    3.6. Server requests methods
-        3.6.1. get(url, dataTypeAnswer)
-        3.6.2. post(url, dataTypeAnswer)
-[4. CSS](## 4. css)
-    4.1. Text align classes
-    4.2. Display options classes
-    4.3. Font modifying classes
-    4.4. Margin modifying classes
-    4.5. Padding modifying classes
-    4.6. Width and height classes
+## 1. QUICK START
+## 2. COMPONENTS
+   ### 2.1 Tabs
+   ### 2.2. Modal
+   ### 2.3. Accordion
+   ### 2.4. Carousel (slider)
+   ### 2.5. Cards
+   ### 2.6. Dropdown
+## 3. MODULES
+   ### 3.1. DOM elements manipulation methods
+   ####    3.1.1. html(content)
+   ####    3.1.2. eq(index) 
+   ####    3.1.3. index()
+   ####    3.1.4. find(selector)
+   ####    3.1.5. siblings(selector)
+   ### 3.2. Event handlers
+   ####    3.2.1. on(eventName, callback)
+   ####    3.2.2. off(eventName, callback)
+   ####    3.2.3. click(callback)
+   ### 3.3. classList property changing methods
+   ####    3.3.1. addClass(...classNames)
+   ####    3.3.2. removeClass(...classNames)
+   ####    3.3.3. toggleClass(className)
+   ### 3.4. Display property changing methods
+   ####    3.4.1. show()
+   ####    3.4.2. hide()
+   ####    3.4.3. toggle()
+   ### 3.5. Animation methods
+   ####    3.5.1. fadeIn(duration, callback, fin) 
+   ####    3.5.2. fadeOut(duration, callback, fin) 
+   ####    3.5.3. fadeToggle(duration, callback, fin) 
+   ### 3.6. Server requests methods
+   ####    3.6.1. get(url, dataTypeAnswer)
+   ####    3.6.2. post(url, dataTypeAnswer)
+## 4. CSS 
+   ### 4.1. Text align classes
+   ### 4.2. Display options classes
+   ### 4.3. Font modifying classes
+   ### 4.4. Margin modifying classes
+   ### 4.5. Padding modifying classes
+   ### 4.6. Width and height classes
 
 
 ## 1. QUICK START:
