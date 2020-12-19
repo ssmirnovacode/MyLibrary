@@ -8,16 +8,53 @@ Most frequently used actions and DOM manipulations are simplified to one word co
 
 Pre-coded CSS styles implemented through html markup classes and data attributes can be consulted in the "CSS" section.
 
-**INDEX**
+## INDEX
 
 
+## 1. QUICK START
+## 2. COMPONENTS
+    2.1 Tabs
+    2.2. Modal
+    2.3. Accordion
+    2.4. Carousel (slider)
+    2.5. Cards
+    2.6. Dropdown
+## 3. MODULES
+    3.1. DOM elements manipulation methods
+        3.1.1. html(content)
+        3.1.2. eq(index) 
+        3.1.3. index()
+        3.1.4. find(selector)
+        3.1.5. siblings(selector)
+    3.2. Event handlers
+        3.2.1. on(eventName, callback)
+        3.2.2. off(eventName, callback)
+        3.2.3. click(callback)
+    3.3. classList property changing methods
+        3.3.1. addClass(...classNames)
+        3.3.2. removeClass(...classNames)
+        3.3.3. toggleClass(className)
+    3.4. Display property changing methods
+        3.4.1. show()
+        3.4.2. hide()
+        3.4.3. toggle()
+    3.5. Animation methods
+        3.5.1. fadeIn(duration, callback, fin) 
+        3.5.2. fadeOut(duration, callback, fin) 
+        3.5.3. fadeToggle(duration, callback, fin) 
+    3.6. Server requests methods
+        3.6.1. get(url, dataTypeAnswer)
+        3.6.2. post(url, dataTypeAnswer)
+## 4. CSS 
+    4.1. Text align classes
+    4.2. Display options classes
+    4.3. Font modifying classes
+    4.4. Margin modifying classes
+    4.5. Padding modifying classes
+    4.6. Width and height classes
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
-
-
-
-**1. QUICK START:**
+## 1. QUICK START:
 
 To set up MyLibray to your project you only need to copy the script.js and styles.css files into corresponding folders and link them to your index.html file:
 
@@ -44,11 +81,11 @@ To set up MyLibray to your project you only need to copy the script.js and style
 
 The pre-coded components will require specific html markup tha will be provided further below in "components" section.
 
-**2. COMPONENTS**
+## 2. COMPONENTS
 
 The classes indicated in html markup are mandatory for proper functioning of the components. Additional classes can be added for further custom styling ("CSS" section).
 
-***2.1 Tabs***
+### 2.1 Tabs
 
 To set up the tabs js-component, the following markup is required: 
 
@@ -75,7 +112,7 @@ To set up the tabs js-component, the following markup is required:
 ![tabs](https://b.radikal.ru/b12/2012/c4/866c1bc92cb7.png)
 
 
-***2.2. Modal***
+### 2.2. Modal
 
 To set up the modal component, the following markup is required:
 
@@ -107,7 +144,7 @@ Modal requires a trigger, where specific data-attributes must be added to markup
 
 ![modal](https://c.radikal.ru/c11/2012/38/4ac6dc9393f7.png)
 
-***2.3. Accordion***
+### 2.3. Accordion
 
 To set up the accordion component, the following markup is required:
 
@@ -133,7 +170,7 @@ To set up the accordion component, the following markup is required:
 
 ![Accordion](https://b.radikal.ru/b05/2012/84/9e41262e0df8.png)
 
-***2.4. Carousel (slider)***
+### 2.4. Carousel (slider)
 
 To set up the carousel component, the following markup is required:
 
@@ -175,7 +212,7 @@ Autoplay option: to enable automatic slide change:
 ```
 ![carousel](https://b.radikal.ru/b26/2012/d3/248f44e636a0.png)
 
-***2.5. Cards***
+### 2.5. Cards
 
 To set up the cards component, the following markup is required:
 
@@ -203,8 +240,7 @@ To set up the cards component, the following markup is required:
 
 ![card](https://c.radikal.ru/c24/2012/d7/6a0952ae0d49.png)
       
-
-***2.6. Dropdown***
+### 2.6. Dropdown
 
 To set up the dropdown component, the following markup is required:
 
@@ -221,7 +257,7 @@ To set up the dropdown component, the following markup is required:
 
 ![dropdown](https://a.radikal.ru/a23/2012/f2/8bb9bddcf630.png)
 
-**3. MODULES**
+## 3. MODULES
 
 Different MyLibrary methods can de initialized following the example:
 ```
@@ -234,39 +270,39 @@ Each method returns the modified object (element), so chaining is available:
 $(selector).methodName1().methodName2();
 ```
 
-***3.1. DOM elements manipulation methods***
+### 3.1. DOM elements manipulation methods
 
 
 
-3.1.1. html(content) 
+#### 3.1.1. html(content) 
 
 A shorter verison of innerHTML method:
 ```
 $(selector).html(content);
 ```
 
-3.1.2. eq(index) 
+#### 3.1.2. eq(index) 
 
 Finds an element by its index in a group of sibling elements:
 ```
 $(selector).eq(index);
 ```
 
-3.1.3. index()
+#### 3.1.3. index()
 
 Returns the index of an element in a group of sibling elements:
 ```
 $(selector).index();
 ```
 
-3.1.4. find(selector)
+#### 3.1.4. find(selector)
 
 Returns an object with element(s) with a specified selector:
 ```
 $(selector).find(selector);
 ```
 
-3.1.5. siblings(selector)
+#### 3.1.5. siblings(selector)
 
 Returns all siblings of an element with a specified selector:
 ```
@@ -274,24 +310,24 @@ $(selector).siblings(selector);
 ```
 
 
-***3.2. Event handlers***
+### 3.2. Event handlers
 
 
-3.2.1. on(eventName, callback)
+#### 3.2.1. on(eventName, callback)
 
 on() method is a shorter version of addEventListener:
 ```
 $(selector).on(eventName, callback);
 ```
 
-3.2.2. off(eventName, callback)
+#### 3.2.2. off(eventName, callback)
 
 removes the event handler:
 ```
 $(selector).off(eventName, callback);
 ```
 
-3.2.3. click(callback)
+#### 3.2.3. click(callback)
 
 A shorter way to add an event Handler on click:
 ```
@@ -299,48 +335,48 @@ $(selector).click(callback);
 ```
 
 
-***3.3. classList property changing methods***
+### 3.3. classList property changing methods
 
 
-3.3.1. addClass(...classNames)
+#### 3.3.1. addClass(...classNames)
 
 addClass() method is a shorter version of classList.add(). Multiple classes can be passed as parameters.
 ```
 $(selector).addClass(...classNames);
 ```
 
-3.3.2. removeClass(...classNames)
+#### 3.3.2. removeClass(...classNames)
 
 removeClass() method is a shorter version of classList.remove(). Multiple classes can be passed as parameters.
 ```
 $(selector).removeClass(...classNames);
 ```
 
-3.3.3. toggleClass(className)
+#### 3.3.3. toggleClass(className)
 
 toggleClass() method is a shorter version of classList.toggle():.
 ```
 $(selector).toggleClass(className);
 ```
 
-***3.4. Display property changing methods***
+### 3.4. Display property changing methods
 
 
-3.4.1. show()
+#### 3.4.1. show()
 
 Sets the display property to '' so the element(s) are visible:
 ```
 $(selector).show();
 ```
 
-3.4.2. hide()
+#### 3.4.2. hide()
 
 Sets the display property to 'none' so the element(s) are hidden:
 ```
 $(selector).hide();
 ```
 
-3.4.3. toggle()
+#### 3.4.3. toggle()
 
 Toggles the display property value from '' to 'none' and back:
 ```
@@ -348,10 +384,10 @@ $(selector).toggle();
 ```
 
 
-***3.5. Animation methods***
+### 3.5. Animation methods
 
 
-3.5.1. fadeIn(duration, callback, fin) 
+#### 3.5.1. fadeIn(duration, callback, fin) 
 
 Creates a fade-in (element slowly becoming visible) animation based on parameters:
 
@@ -362,7 +398,7 @@ fin - function to be called after the animation is finished (optional)
 $(selector).fadeIn(duration, callback, fin);
 ```
 
-3.5.2. fadeOut(duration, callback, fin) 
+#### 3.5.2. fadeOut(duration, callback, fin) 
 
 Creates a fade-out (element slowly becoming hidden) animation based on parameters:
 
@@ -373,7 +409,7 @@ fin - function to be called after the animation is finished (optional)
 $(selector).fadeOut(duration, callback, fin);
 ```
 
-3.5.3. fadeToggle(duration, callback, fin) 
+#### 3.5.3. fadeToggle(duration, callback, fin) 
 
 Animation working as fadeIn or fadeOut depending on the value of display property of the element.
 
@@ -385,10 +421,10 @@ $(selector).fadeToggle(duration, callback, fin);
 ```
 
 
-***3.6. Server requests methods***
+### 3.6. Server requests methods
 
 
-3.6.1. get(url, dataTypeAnswer)
+#### 3.6.1. get(url, dataTypeAnswer)
 
 A shorter version of fetch API for GET requests with following parameters:
 
@@ -398,7 +434,7 @@ dataTypeAnswer - data format (set to 'json' format as default). Current library 
 $(selector).get(url, dataTypeAnswer);
 ```
 
-3.6.2. post(url, dataTypeAnswer)
+#### 3.6.2. post(url, dataTypeAnswer)
 
 A shorter version of fetch API for POST requests with following parameters:
 
@@ -407,12 +443,12 @@ dataTypeAnswer - data format (set to 'json' format as default)
 ```
 $(selector).post(url, dataTypeAnswer);
 ```
-**4. CSS **
+## 4. CSS
 
 MyLibrary has a variety of custom ready-to-use CSS-classes specified below.
 
 
-***4.1. Text align classes ***
+### 4.1. Text align classes
 ```
 .text-center {
     text-align: center;
@@ -422,7 +458,7 @@ MyLibrary has a variety of custom ready-to-use CSS-classes specified below.
 }
 ```
 
-***4.2. Display options classes***
+### 4.2. Display options classes
 ```
 .hidden {
     visibility: hidden;
@@ -451,7 +487,7 @@ MyLibrary has a variety of custom ready-to-use CSS-classes specified below.
 }
 ```
 
-***4.3. Font modifying classes***
+### 4.3. Font modifying classes
 ```
 .fz-16 {
     font-size: 16px;
@@ -488,7 +524,7 @@ MyLibrary has a variety of custom ready-to-use CSS-classes specified below.
 }
 ```
 
-***4.4. Margin modifying classes***
+### 4.4. Margin modifying classes
 ```
 .m10 {
     margin: 10px;
@@ -522,7 +558,7 @@ MyLibrary has a variety of custom ready-to-use CSS-classes specified below.
 }
 ```
 
-***4.5. Padding modifying classes***
+### 4.5. Padding modifying classes
 ```
 .p10 {
     padding: 10px;
@@ -556,7 +592,7 @@ MyLibrary has a variety of custom ready-to-use CSS-classes specified below.
 }
 ```
 
-***4.6. Width and height classes***
+### 4.6. Width and height classes
 ```
 .w-100 {
     width: 100%;
