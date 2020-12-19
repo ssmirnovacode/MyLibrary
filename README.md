@@ -11,8 +11,8 @@ Pre-coded CSS styles implemented through html markup classes and data attributes
 ## INDEX
 
 
-## 1. QUICK START
-## 2. COMPONENTS
+[## 1. QUICK START](## 1. quick start)
+[## 2. COMPONENTS](## 2.components)
     2.1 Tabs
     2.2. Modal
     2.3. Accordion
