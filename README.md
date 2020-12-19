@@ -11,15 +11,15 @@ Pre-coded CSS styles implemented through html markup classes and data attributes
 ## INDEX
 
 
-1. QUICK START
-2. COMPONENTS
+## 1. QUICK START
+## 2. COMPONENTS
     2.1 Tabs
     2.2. Modal
     2.3. Accordion
     2.4. Carousel (slider)
     2.5. Cards
     2.6. Dropdown
-3. MODULES
+## 3. MODULES
     3.1. DOM elements manipulation methods
         3.1.1. html(content)
         3.1.2. eq(index) 
@@ -45,7 +45,7 @@ Pre-coded CSS styles implemented through html markup classes and data attributes
     3.6. Server requests methods
         3.6.1. get(url, dataTypeAnswer)
         3.6.2. post(url, dataTypeAnswer)
-4. CSS 
+## 4. CSS 
     4.1. Text align classes
     4.2. Display options classes
     4.3. Font modifying classes
