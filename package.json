@@ -30,6 +30,7 @@
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
-    "socket.io-parser": "^4.0.4"
+    "socket.io-parser": "^4.0.4",
+    "trim-newlines": "^4.0.2"
   }
 }
